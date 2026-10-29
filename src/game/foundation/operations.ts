@@ -30,7 +30,7 @@ export function placeCard(
   const updatedPlayer = Object.freeze({ ...targetPlayer, field });
   const players = [...state.players] as [typeof targetPlayer, typeof targetPlayer];
   players[playerIndex] = updatedPlayer;
-  return { ok: true, state: Object.freeze({ players: Object.freeze(players) }) };
+  return { ok: true, state: Object.freeze({ ...state, players: Object.freeze(players) }) };
 }
 
 export function removeCard(state: DuelState, playerId: PlayerId, position: FieldPosition): RemoveCardResult {
@@ -47,5 +47,5 @@ export function removeCard(state: DuelState, playerId: PlayerId, position: Field
   const updatedPlayer = Object.freeze({ ...targetPlayer, field });
   const players = [...state.players] as [typeof targetPlayer, typeof targetPlayer];
   players[playerIndex] = updatedPlayer;
-  return { ok: true, state: Object.freeze({ players: Object.freeze(players) }), card };
+  return { ok: true, state: Object.freeze({ ...state, players: Object.freeze(players) }), card };
 }

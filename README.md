@@ -39,3 +39,5 @@ npm run build
 ```
 
 O Vite gera os arquivos em `dist/`. Veja [PROTOTYPE_RULES.md](PROTOTYPE_RULES.md) para o escopo provisório e [auditoria técnica](docs/auditoria-tecnica.md) para a estrutura escolhida.
+
+O protótipo de combate da Versão 1.0 pode ser experimentado em **Arena jogável (teste)** no menu. Rode `npm run dev`, abra o endereço informado pelo Vite e escolha essa opção. Cada lado começa com 3 cartas e 3 recursos; selecione uma carta, clique em uma casa destacada e encerre sua preparação. Uma carta ou passe é permitido por participante em cada rodada. O bot então faz uma jogada legal da própria mão ou passa. Depois das duas preparações, o combate é resolvido, cada lado recebe renda de 1 recurso (até 8) e compra uma carta, caso o baralho ainda tenha cartas. A mão do bot permanece oculta. A arena usa `DuelState` como estado oficial e continua separada da partida antiga de pontuação. Mãos, custos, renda e rodadas são hipóteses provisórias; a loja e compra de ofertas ainda não foram implementadas. Consulte [regras do combate](docs/sistemas/game-rules.md), [questões abertas](docs/sistemas/open-questions.md) e [roadmap](docs/sistemas/roadmap.md).

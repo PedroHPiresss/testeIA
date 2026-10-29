@@ -20,8 +20,8 @@ Trabalhe em português brasileiro. Identifique claramente fatos, hipóteses, ris
 
 ## Limites da fase atual
 
-A ordem do Diretor Humano para o Prototype 0.1 autoriza implementar a fundação técnica e as regras temporárias registradas em `PROTOTYPE_RULES.md`. Isso não escolhe um conceito definitivo nem autoriza arte final ou design final. Preserve as propostas originais; mantenha UI, dados e motor fáceis de substituir. Não altere regras provisórias sem registrar a justificativa.
+A ordem anterior para o Prototype 0.1 autorizou a fundação técnica e as regras temporárias em `PROTOTYPE_RULES.md`. A instrução específica para o início da Versão 1.0 autoriza implementar o combate provisório descrito em `docs/sistemas/game-rules.md`. Essa autorização não escolhe um conceito definitivo, não torna hipóteses decisões oficiais e não autoriza arte final. Preserve as propostas originais; mantenha UI, dados e motor fáceis de substituir. Registre justificativas para mudanças em regras provisórias.
 
 ## Qualidade e colaboração
 
-Escreva de forma concisa, específica e acionável. Use títulos descritivos e exemplos curtos quando úteis. Prefira kebab-case em documentos/configurações, PascalCase para componentes React e camelCase para funções/variáveis. Antes de editar, confira se o arquivo pertence à sua entrega; agentes diferentes devem trabalhar em arquivos separados. Não afirme que testes ou validações foram executados se não foram. O Programador é o único agente autorizado a modificar o código principal nesta etapa; Analista e QA revisam/testam e encaminham achados ao Programador.
+Escreva de forma concisa, específica e acionável. Use títulos descritivos e exemplos curtos quando úteis. Prefira kebab-case em documentos/configurações, PascalCase para componentes React e camelCase para funções/variáveis. Antes de editar, confira se o arquivo pertence à sua entrega; agentes diferentes devem trabalhar em arquivos separados. Não afirme que testes ou validações foram executados se não foram. Nesta fase, o agente implementador autorizado modifica o código principal; Analista e QA revisam/testam e encaminham achados ao implementador.

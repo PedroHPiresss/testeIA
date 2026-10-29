@@ -13,7 +13,10 @@ export function createDuelState(firstPlayer: Player, secondPlayer: Player): Duel
       throw new TypeError(`O campo deve conter exatamente ${FIELD_POSITION_COUNT} posições.`);
     }
 
-    for (const card of player.field.cells) {
+    if (!Number.isFinite(player.resources) || player.resources < 0) {
+      throw new TypeError('Os recursos do jogador devem ser finitos e não negativos.');
+    }
+    for (const card of [...player.field.cells, ...player.hand, ...player.deck]) {
       if (card === null) continue;
       if (typeof card !== 'object' || typeof card.instanceId !== 'string' || card.instanceId.trim().length === 0) {
         throw new TypeError('Toda carta posicionada deve ter um identificador de instância válido.');
@@ -26,5 +29,14 @@ export function createDuelState(firstPlayer: Player, secondPlayer: Player): Duel
     }
   }
 
-  return Object.freeze({ players: Object.freeze([firstPlayer, secondPlayer]) as readonly [Player, Player] });
+  return Object.freeze({
+    players: Object.freeze([firstPlayer, secondPlayer]) as readonly [Player, Player],
+    outcome: null,
+    round: 1,
+    phase: 'planning',
+    activePlayerId: firstPlayer.id,
+    initiativePlayerId: firstPlayer.id,
+    actedPlayerIds: Object.freeze([]),
+    preparedPlayerIds: Object.freeze([]),
+  });
 }

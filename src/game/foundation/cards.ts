@@ -69,11 +69,16 @@ export function createLeaderInstance(
   instanceId: string,
   definition: LeaderDefinition,
   ownerId: PlayerId,
+  currentHealth = DEFAULT_LEADER_HEALTH,
 ): LeaderInstance {
   assertIdentifier(instanceId, 'instanceId');
   assertIdentifier(ownerId, 'ownerId');
-  return Object.freeze({ instanceId, definition, ownerId });
+  assertNonNegativeNumber(currentHealth, 'currentHealth');
+  return Object.freeze({ instanceId, definition, ownerId, currentHealth });
 }
+
+/** Valor apenas provisório para instâncias criadas sem configuração explícita. */
+export const DEFAULT_LEADER_HEALTH = 20;
 
 function assertIdentifier(value: string, fieldName: string): void {
   if (typeof value !== 'string' || value.trim().length === 0) {

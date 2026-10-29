@@ -7,5 +7,12 @@ export function createPlayer(id: PlayerId, leader: LeaderInstance): Player {
   }
   if (leader.ownerId !== id) throw new TypeError('O Líder deve pertencer ao jogador.');
 
-  return Object.freeze({ id, field: createBattlefield(id), leader });
+  return Object.freeze({
+    id,
+    field: createBattlefield(id),
+    leader,
+    hand: Object.freeze([]),
+    deck: Object.freeze([]),
+    resources: 0,
+  });
 }

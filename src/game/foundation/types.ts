@@ -31,10 +31,11 @@ export interface LeaderInstance {
   readonly instanceId: string;
   readonly definition: LeaderDefinition;
   readonly ownerId: PlayerId;
+  readonly currentHealth: number;
 }
 
 export interface FieldPosition {
-  /** Índices técnicos de 0 a 2; nenhuma fileira tem semântica de frente/fundo aqui. */
+  /** Índice técnico de 0 a 2; a semântica de frente/fundo é definida pelo sistema consumidor. */
   readonly row: number;
   /** Índices técnicos de 0 a 3. */
   readonly column: number;
@@ -50,10 +51,23 @@ export interface Player {
   readonly id: PlayerId;
   readonly field: Battlefield;
   readonly leader: LeaderInstance;
+  readonly hand: readonly CardInstance[];
+  readonly deck: readonly CardInstance[];
+  readonly resources: number;
 }
+
+export type DuelPhase = 'planning' | 'finished';
 
 export interface DuelState {
   readonly players: readonly [Player, Player];
+  /** Resultado terminal do combate, quando houver. */
+  readonly outcome: PlayerId | 'draw' | null;
+  readonly round: number;
+  readonly phase: DuelPhase;
+  readonly activePlayerId: PlayerId;
+  readonly initiativePlayerId: PlayerId;
+  readonly actedPlayerIds: readonly PlayerId[];
+  readonly preparedPlayerIds: readonly PlayerId[];
 }
 
 export type FoundationError =
